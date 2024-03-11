@@ -1,0 +1,7 @@
+.football-field {
+    width: 350px;
+    height: 475px;
+    position: relative;
+    background-image: url("../../assets/images/field.svg");
+    background-size: 100% 100%;
+}
