@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles.css";
 
 interface PlayerProps {
@@ -23,15 +23,42 @@ const Player = ({
   const circleColors: React.CSSProperties = {
     background: `linear-gradient(to bottom, ${primaryColor} 50%, ${secondaryColor} 50%)`,
   };
+
+  const [showInput, setShowInput] = useState(false);
+  const [playerName, setPlayerName] = useState("");
+
+  const toggleInput = () => {
+    setShowInput(!showInput);
+  };
+
+  const closeInput = () => {
+    setShowInput(false);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPlayerName(e.target.value);
+  };
+
   return (
     <div className="player-container" style={playerPosition}>
       <div className="circle" style={circleColors}>
-        <div className="player-input">
-          <input type="text" placeholder="Enter player name" />
-          <button className="close-button">Close</button>
-        </div>
+        {showInput && (
+          <div className="player-input">
+            <input
+              type="text"
+              value={playerName}
+              onChange={handleInputChange}
+              placeholder="Enter player name"
+            />
+            <button className="close-button" onClick={closeInput}>
+              Close
+            </button>
+          </div>
+        )}
       </div>
-      <div className="player-name">{name}</div>
+      <span className="player-name" onClick={toggleInput}>
+        {playerName || name}
+      </span>
     </div>
   );
 };

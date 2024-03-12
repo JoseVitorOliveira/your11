@@ -16,10 +16,6 @@
     cursor: grab;
 }
 
-.player-input {
-    display: none;
-}
-
 .player-name {
     display: flex;
     justify-content: center;
