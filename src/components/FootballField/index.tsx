@@ -3,9 +3,15 @@ import "./styles.css";
 
 interface FootballFieldProps {
   formation: string;
+  primaryColor: string;
+  secondaryColor: string;
 }
 
-const FootballField = (formation: FootballFieldProps) => {
+const FootballField = ({
+  formation,
+  primaryColor,
+  secondaryColor,
+}: FootballFieldProps) => {
   const formations = {
     "4-3-3": [
       { leftPos: 160, topPos: 370 },
@@ -35,7 +41,7 @@ const FootballField = (formation: FootballFieldProps) => {
   };
 
   const playerPositions =
-    formations[formation.formation as keyof typeof formations] || [];
+    formations[formation as keyof typeof formations] || [];
 
   return (
     <div className="football-field">
@@ -45,8 +51,8 @@ const FootballField = (formation: FootballFieldProps) => {
             key={index}
             topPos={position.topPos}
             leftPos={position.leftPos}
-            primaryColor="red"
-            secondaryColor="white"
+            primaryColor={primaryColor}
+            secondaryColor={secondaryColor}
             name={`Player ${index + 1}`}
           />
         )
