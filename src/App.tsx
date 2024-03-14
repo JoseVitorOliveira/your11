@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import FootballField from "./components/FootballField";
 import ColorPicker from "./components/ColorPicker";
+import { exportAsImage } from "./utils/exportAsImage";
+
+declare module "./utils/exportAsImage" {
+  export function exportAsImage(element: HTMLElement, fileName: string): void;
+}
 
 function App() {
   const [formation, setFormation] = useState("4-3-3");
+
   const [primaryColor, setPrimaryColor] = useState("#77ff00");
   const [secondaryColor, setSecondaryColor] = useState("#ffffff");
 
@@ -18,6 +24,8 @@ function App() {
   const handleSecondaryColorChange = (color: { hex: string }) => {
     setSecondaryColor(color.hex);
   };
+
+  const exportRef = useRef(null);
 
   return (
     <>
@@ -62,12 +70,17 @@ function App() {
           color={secondaryColor}
           onChange={handleSecondaryColorChange}
         />
+        <button onClick={() => exportAsImage(exportRef.current!, "formation")}>
+          Save as PNG
+        </button>
       </div>
-      <FootballField
-        primaryColor={primaryColor}
-        secondaryColor={secondaryColor}
-        formation={formation}
-      />
+      <div ref={exportRef}>
+        <FootballField
+          primaryColor={primaryColor}
+          secondaryColor={secondaryColor}
+          formation={formation}
+        />
+      </div>
     </>
   );
 }

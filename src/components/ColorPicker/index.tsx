@@ -1,5 +1,5 @@
 import React from "react";
-import { SketchPicker, ColorResult } from "react-color";
+import { GithubPicker, ColorResult } from "react-color";
 
 interface ColorPickerProps {
   color: string;
@@ -7,7 +7,7 @@ interface ColorPickerProps {
 }
 
 const ColorPicker: React.FC<ColorPickerProps> = ({ color, onChange }) => {
-  return <SketchPicker color={color} onChange={onChange} />;
+  return <GithubPicker color={color} onChange={onChange} />;
 };
 
 export default ColorPicker;
