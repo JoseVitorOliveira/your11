@@ -1,11 +1,8 @@
 import { useRef, useState } from "react";
 import FootballField from "./components/FootballField";
 import ColorPicker from "./components/ColorPicker";
-import { exportAsImage } from "./utils/exportAsImage";
-
-declare module "./utils/exportAsImage" {
-  export function exportAsImage(element: HTMLElement, fileName: string): void;
-}
+import exportAsImage from "./utils/exportAsImage";
+import Header from "./components/Header";
 
 function App() {
   const [formation, setFormation] = useState("4-3-3");
@@ -25,10 +22,11 @@ function App() {
     setSecondaryColor(color.hex);
   };
 
-  const exportRef = useRef(null);
+  const exportRef = useRef<HTMLDivElement>(null);
 
   return (
     <>
+      <Header />
       <div>
         <label htmlFor="formation">Select Formation:</label>
         <select
@@ -70,10 +68,15 @@ function App() {
           color={secondaryColor}
           onChange={handleSecondaryColorChange}
         />
-        <button onClick={() => exportAsImage(exportRef.current!, "formation")}>
+        <button
+          onClick={() =>
+            exportRef.current && exportAsImage(exportRef.current, "formation")
+          }
+        >
           Save as PNG
         </button>
       </div>
+
       <div ref={exportRef}>
         <FootballField
           primaryColor={primaryColor}
