@@ -3,6 +3,8 @@ import FootballField from "./components/FootballField";
 import ColorPicker from "./components/ColorPicker";
 import exportAsImage from "./utils/exportAsImage";
 import Header from "./components/Header";
+import downloadIcon from "./assets/images/download.svg";
+import "./style.css";
 
 function App() {
   const [formation, setFormation] = useState("4-3-3");
@@ -27,63 +29,51 @@ function App() {
   return (
     <>
       <Header />
-      <div>
-        <label htmlFor="formation">Select Formation:</label>
-        <select
-          id="formation"
-          value={formation}
-          onChange={handleFormationChange}
-        >
-          <option value="4-4-2">4-4-2</option>
-          <option value="4-3-3">4-3-3</option>
-        </select>
-      </div>
-      <div>
-        <label>Primary Color:</label>
-        <div
-          style={{
-            display: "inline-block",
-            width: "30px",
-            height: "30px",
-            backgroundColor: primaryColor,
-            cursor: "pointer",
-          }}
-          onClick={() => setPrimaryColor(primaryColor)}
-        />
-        <ColorPicker color={primaryColor} onChange={handlePrimaryColorChange} />
-      </div>
-      <div>
-        <label>Secondary Color:</label>
-        <div
-          style={{
-            display: "inline-block",
-            width: "30px",
-            height: "30px",
-            backgroundColor: secondaryColor,
-            cursor: "pointer",
-          }}
-          onClick={() => setSecondaryColor(secondaryColor)}
-        />
-        <ColorPicker
-          color={secondaryColor}
-          onChange={handleSecondaryColorChange}
-        />
+      <main>
+        <div className="formation-container">
+          <label htmlFor="formation">Select Formation:</label>
+          <select
+            id="formation"
+            value={formation}
+            onChange={handleFormationChange}
+          >
+            <option value="4-3-3">4-3-3</option>
+            <option value="4-3-2-1">4-3-2-1</option>
+            <option value="4-4-2">4-4-2</option>
+            <option value="4-4-1-1">4-4-1-1</option>
+            <option value="4-5-1">4-5-1</option>
+            <option value="3-5-2">3-5-2</option>
+            <option value="3-4-3">3-4-3</option>
+          </select>
+        </div>
+        <div className="colors-container">
+          <ColorPicker
+            color={primaryColor}
+            onChange={handlePrimaryColorChange}
+            label="Primary Color"
+          />
+          <ColorPicker
+            color={secondaryColor}
+            onChange={handleSecondaryColorChange}
+            label="Secondary Color"
+          />
+        </div>
+        <div ref={exportRef}>
+          <FootballField
+            primaryColor={primaryColor}
+            secondaryColor={secondaryColor}
+            formation={formation}
+          />
+        </div>
         <button
+          className="save-button"
           onClick={() =>
             exportRef.current && exportAsImage(exportRef.current, "formation")
           }
         >
-          Save as PNG
+          Save as PNG <img src={downloadIcon} alt="download icon" />
         </button>
-      </div>
-
-      <div ref={exportRef}>
-        <FootballField
-          primaryColor={primaryColor}
-          secondaryColor={secondaryColor}
-          formation={formation}
-        />
-      </div>
+      </main>
     </>
   );
 }

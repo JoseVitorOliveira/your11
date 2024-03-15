@@ -4,3 +4,11 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+
+*:focus {
+    outline: 1px solid #fff;
+}
+
+body {
+    background-color: rgb(34, 146, 77);
+}

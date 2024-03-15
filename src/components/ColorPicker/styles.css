@@ -1,0 +1,38 @@
+.pallete-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.color-label {
+    display: flex;
+    align-items: center;
+}
+
+.color-label label {
+    font-size: 14px;
+    text-shadow: 0 0 5px #000;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #fff;
+    margin-right: 5px;
+}
+
+.pallete-color {
+    width: 25px;
+    height: 25px;
+    border: 2px solid #000;
+    cursor: pointer;
+    position: relative;
+
+}
+
+.pallete-color-picker {
+    display: flex;
+    position: absolute;
+    z-index: 2;
+
+}
+
