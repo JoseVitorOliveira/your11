@@ -35,3 +35,10 @@
 
 }
 
+/* medium devices */
+@media (min-width: 768px) {
+    .color-label label {
+        font-size: 14px;
+        margin-left: 2px;
+    }
+}
