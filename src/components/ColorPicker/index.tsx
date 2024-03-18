@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { GithubPicker, ColorResult } from "react-color";
+import React, { useState, useRef, useEffect } from "react";
+import { BlockPicker, ColorResult } from "react-color";
 import "./styles.css";
 
 interface ColorPickerProps {
@@ -14,6 +14,23 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
   label,
 }) => {
   const [showPicker, setShowPicker] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        setShowPicker(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const handleClick = () => {
     setShowPicker(!showPicker);
@@ -24,7 +41,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
   };
 
   return (
-    <div className="pallete-wrapper">
+    <div className="pallete-wrapper" ref={containerRef}>
       <div className="color-label">
         <label>{label}:</label>
         <div
@@ -35,10 +52,23 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
       </div>
       {showPicker && (
         <div className="pallete-color-picker">
-          <GithubPicker
+          <BlockPicker
             color={color}
             onChange={onChange}
             onChangeComplete={handleClose}
+            triangle="hide"
+            colors={[
+              "#f2eeee",
+              "#009300",
+              "#c20303",
+              "#c2af03",
+              "#000000",
+              "#014dff",
+              "#6CABDD",
+              "#ff7620",
+              "#4f0e72",
+              "#813106",
+            ]}
           />
         </div>
       )}

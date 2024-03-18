@@ -5,11 +5,12 @@ import exportAsImage from "./utils/exportAsImage";
 import Header from "./components/Header";
 import downloadIcon from "./assets/images/download.svg";
 import "./style.css";
+import Footer from "./components/Footer";
 
 function App() {
   const [formation, setFormation] = useState("4-3-3");
 
-  const [primaryColor, setPrimaryColor] = useState("#77ff00");
+  const [primaryColor, setPrimaryColor] = useState("#13c9f7");
   const [secondaryColor, setSecondaryColor] = useState("#ffffff");
 
   const handleFormationChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -74,6 +75,7 @@ function App() {
           Save as PNG <img src={downloadIcon} alt="download icon" />
         </button>
       </main>
+      <Footer />
     </>
   );
 }

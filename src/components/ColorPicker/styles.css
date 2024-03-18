@@ -1,9 +1,6 @@
 .pallete-wrapper {
     position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
-
 }
 
 .color-label {
@@ -32,6 +29,8 @@
 .pallete-color-picker {
     display: flex;
     position: absolute;
+    top: 30px;
+    left: 0px;
     z-index: 2;
 
 }

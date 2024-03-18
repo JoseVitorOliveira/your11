@@ -69,6 +69,10 @@ main {
     outline: 2px solid #fff;
 }
 
+.save-button:hover {
+    background-color: rgb(21, 89, 10);
+}
+
 .save-button img {
     width: 20px;
     height: 14px;
