@@ -8,18 +8,45 @@ footer {
     color: #6c757d;
     font-size: 14px;
     font-weight: 400;
-    height: 140px;
+    height: 220px;
 }
 
-a {
+footer a {
     color: #548194;
 }
 
-a:hover {
+footer h3 {
+    font-size: 0.85rem;
+}
+
+footer a:hover {
     color: #fff;
 }
 
-a:active {
+footer a:active {
     color: #fff;
 }
+
+/* medium-devices */
+@media (min-width: 768px) {
+    footer h3 {
+        font-size: 1rem;
+    }
+}
+
+/* large-devices */
+@media (min-width: 1024px) {
+    footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        gap: 100px;
+    }
+
+    .footer-info h3 {
+        margin: -20px;
+    }
+}
+
 

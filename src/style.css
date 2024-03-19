@@ -32,9 +32,8 @@ main {
 
 .formation-container select, option {
     font-size: 14px;
-    color: #fff;
+    color: #e2e2e2;
     background-color: rgb(18, 93, 6);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border: 1px solid #fff;
     height: 30px;
     padding: 0 0.5rem;
@@ -121,7 +120,7 @@ main {
     }
 
     .formation-container select, option {
-        font-size: 16px;
+        font-size: 15px;
         width: 164px;
         height: 30px;
         margin-top: 0;
@@ -134,9 +133,16 @@ main {
 }
 
 /* large devices */
-@media (min-width: 1025px) {
+@media (min-width: 1024px) {
     main {
         width: 75%;
         margin-inline: auto;
+    }
+}
+
+/* extra large devices */
+@media (min-width: 1280px) {
+    main {
+        width: 60%;
     }
 }

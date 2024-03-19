@@ -67,7 +67,7 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
               "#6CABDD",
               "#ff7620",
               "#4f0e72",
-              "#813106",
+              "#841A29",
             ]}
           />
         </div>

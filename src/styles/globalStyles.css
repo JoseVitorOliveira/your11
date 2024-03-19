@@ -11,4 +11,5 @@
 
 body {
     background-color: rgb(34, 146, 77);
+    background-image: linear-gradient(rgb(34, 146, 77), rgba(18, 55, 19, 0.85));
 }
