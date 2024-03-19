@@ -59,9 +59,9 @@ const ColorPicker: React.FC<ColorPickerProps> = ({
             triangle="hide"
             colors={[
               "#f2eeee",
-              "#009300",
+              "#10d210",
               "#c20303",
-              "#c2af03",
+              "#ffec3d",
               "#000000",
               "#014dff",
               "#6CABDD",

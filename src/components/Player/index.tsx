@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
 
 interface PlayerProps {
@@ -26,6 +26,23 @@ const Player = ({
 
   const [showInput, setShowInput] = useState(false);
   const [playerName, setPlayerName] = useState("");
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        setShowInput(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const toggleInput = () => {
     setShowInput(!showInput);
@@ -42,8 +59,12 @@ const Player = ({
   return (
     <div className="player-container" style={playerPosition}>
       <div className="circle" style={circleColors}>
-        {showInput && (
-          <div className="player-input">
+        {" "}
+      </div>
+      {showInput && (
+        <div className="input-wrapper" ref={containerRef}>
+          <div className="triangle"></div>
+          <div className="player-input-container">
             <input
               type="text"
               value={playerName}
@@ -54,8 +75,8 @@ const Player = ({
               Close
             </button>
           </div>
-        )}
-      </div>
+        </div>
+      )}
       <span className="player-name" onClick={toggleInput}>
         {playerName || name}
       </span>

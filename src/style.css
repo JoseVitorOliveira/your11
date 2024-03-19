@@ -71,7 +71,7 @@ main {
 }
 
 .save-button:hover {
-    background-color: rgb(21, 89, 10);
+    background-color: rgb(48, 173, 29);
 }
 
 .save-button img {
@@ -146,3 +146,12 @@ main {
         width: 60%;
     }
 }
+
+/* extra extra large devices */
+@media (min-width: 1536px) {
+    main {
+        width: 55%;
+    }
+}
+
+
