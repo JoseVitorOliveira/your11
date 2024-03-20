@@ -40,11 +40,13 @@ function App() {
               onChange={handleFormationChange}
             >
               <option value="4-3-3">4-3-3</option>
+              <option value="4-2-3-1">4-2-3-1</option>
               <option value="4-3-2-1">4-3-2-1</option>
               <option value="4-4-2">4-4-2</option>
               <option value="4-4-1-1">4-4-1-1</option>
               <option value="4-5-1">4-5-1</option>
               <option value="3-5-2">3-5-2</option>
+              <option value="3-5-1-1">3-5-1-1</option>
               <option value="3-4-3">3-4-3</option>
             </select>
           </div>

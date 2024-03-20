@@ -32,9 +32,9 @@ main {
 
 .formation-container select, option {
     font-size: 14px;
-    color: #e2e2e2;
-    background-color: rgb(18, 93, 6);
-    border: 1px solid #fff;
+    color: #ffffff;
+    background-color: rgb(12, 73, 3);
+    border: none;
     height: 30px;
     padding: 0 0.5rem;
 }

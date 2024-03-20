@@ -1,5 +1,6 @@
 import Player from "../Player";
 import "./styles.css";
+import formations from "../../utils/Fomations";
 
 interface FootballFieldProps {
   formation: string;
@@ -12,34 +13,6 @@ const FootballField = ({
   primaryColor,
   secondaryColor,
 }: FootballFieldProps) => {
-  const formations = {
-    "4-3-3": [
-      { leftPos: 160, topPos: 370 },
-      { leftPos: 200, topPos: 310 },
-      { leftPos: 120, topPos: 310 },
-      { leftPos: 280, topPos: 290 },
-      { leftPos: 40, topPos: 290 },
-      { leftPos: 120, topPos: 200 },
-      { leftPos: 200, topPos: 200 },
-      { leftPos: 40, topPos: 70 },
-      { leftPos: 160, topPos: 50 },
-      { leftPos: 160, topPos: 140 },
-      { leftPos: 280, topPos: 70 },
-    ],
-    "4-4-2": [
-      { leftPos: 160, topPos: 370 },
-      { leftPos: 200, topPos: 310 },
-      { leftPos: 120, topPos: 310 },
-      { leftPos: 280, topPos: 290 },
-      { leftPos: 40, topPos: 290 },
-      { leftPos: 120, topPos: 200 },
-      { leftPos: 200, topPos: 200 },
-      { leftPos: 280, topPos: 200 },
-      { leftPos: 40, topPos: 70 },
-      { leftPos: 160, topPos: 70 },
-    ],
-  };
-
   const playerPositions =
     formations[formation as keyof typeof formations] || [];
 
