@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
+import checkMark from "../../assets/images/checkMark.svg";
 
 interface PlayerProps {
   name: string;
@@ -72,7 +73,7 @@ const Player = ({
               placeholder="Enter player name"
             />
             <button className="close-button" onClick={closeInput}>
-              Close
+              <img src={checkMark} alt="" />
             </button>
           </div>
         </div>

@@ -42,31 +42,35 @@
     background-color: rgb(1, 70, 3);
     display: flex;
     justify-content: center;
-    width: 270px;
+    width: 185px;
     height: 45px;
     position: absolute;
     top: 35px;
-    padding: 9px;
-    gap: 10px;
-    left: -135px;
+    padding: 8px 3px;
+    gap: 5px;
+    left: -95px;
 }
 
 .player-input-container input {
     padding: 8px;
-    width: 190px;
+    width: 130px;
 }
 
 .player-input-container button {
-    background-color: rgb(163, 24, 54);
+    background-color: rgb(25, 177, 45);
     font-weight: 700;
     color: rgb(255, 255, 255);
     border: none;
     cursor: pointer;
-    width: 55px;
+    width: 35px;
+}
+
+.player-input-container img {
+    margin-top: 3px;
 }
 
 .player-input-container button:hover {
-    background-color: rgb(178, 8, 8);
+    background-color: rgb(37, 213, 60);
 }
 
 .triangle {
