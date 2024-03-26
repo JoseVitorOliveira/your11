@@ -32,6 +32,7 @@ const Player = ({
   const [showInput, setShowInput] = useState(false);
   const [playerName, setPlayerName] = useState("");
   const containerRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -61,6 +62,13 @@ const Player = ({
     setPlayerName(e.target.value);
   };
 
+  useEffect(() => {
+    if (showInput && inputRef.current) {
+      inputRef.current.focus();
+      inputRef.current.select(); // Select input content
+    }
+  }, [showInput]);
+
   return (
     <div className="player-container" style={playerPosition}>
       <div className="circle">
@@ -76,6 +84,7 @@ const Player = ({
               value={playerName}
               onChange={handleInputChange}
               placeholder="Enter player name"
+              ref={inputRef}
             />
             <button className="close-button" onClick={closeInput}>
               <img src={checkMark} alt="" />
