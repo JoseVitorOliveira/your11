@@ -21,8 +21,12 @@ const Player = ({
     top: `${topPos}px`,
     left: `${leftPos}px`,
   };
-  const circleColors: React.CSSProperties = {
-    background: `linear-gradient(to bottom, ${primaryColor} 50%, ${secondaryColor} 50%)`,
+  const topColor: React.CSSProperties = {
+    backgroundColor: primaryColor,
+  };
+
+  const bottomColor: React.CSSProperties = {
+    backgroundColor: secondaryColor,
   };
 
   const [showInput, setShowInput] = useState(false);
@@ -59,8 +63,9 @@ const Player = ({
 
   return (
     <div className="player-container" style={playerPosition}>
-      <div className="circle" style={circleColors}>
-        {" "}
+      <div className="circle">
+        <div className="top-half" style={topColor}></div>
+        <div className="bottom-half" style={bottomColor}></div>
       </div>
       {showInput && (
         <div className="input-wrapper" ref={containerRef}>
