@@ -81,6 +81,7 @@ const Player = ({
           <div className="player-input-container">
             <input
               type="text"
+              maxLength={12}
               value={playerName}
               onChange={handleInputChange}
               placeholder="Enter player name"
